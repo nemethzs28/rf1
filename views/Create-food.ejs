@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>WebPincér</title>
+    <link rel="stylesheet" type="text/css" href="/style/allStyle.css">
+    <link rel="icon" href="/assets/icon_restaurant.png">
+    <script type="text/javascript" src="/scripts/indexDB.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <script type="text/javascript" src="/scripts/floatingLabel.js"></script>
+</head>
+<body>
+<div class="mainPageContainer">
+    <div class="mainPage">
+        <div class="mainPageHeaderContainer">
+            <div class="header">
+                <a href="/" style="text-decoration: none">
+                    <div class="mainTitle">WebPincér</div>
+                </a>
+                <div style="display: flex;align-self: center;">
+                    <a href="/profile" style="text-decoration: none" class="aContainerProfilePic">
+                        <div class="profileIcon"></div>
+                    </a>
+                    <a href="/shoppingCart" style="text-decoration: none" class="aContainerCartPic">
+                        <div id="Cart" class="shoppingCartIcon smthInCart"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu">
+                <%if (sess.email) {%>
+                        <a href="/signout" style="text-decoration: none">
+                            <div class="login">Kijelentkezés</div>
+                        </a>
+                    <% } else {%>
+                        <a href="/login" style="text-decoration: none">
+                            <div class="login">Bejelentkezés</div>
+                        </a>
+                    <% } %>
+                <a href="/registration" style="text-decoration: none">
+                    <div class="registration">Regisztráció</div>
+                </a>
+                <a href="/connection" style="text-decoration: none">
+                    <div class="connection">Kapcsolat</div>
+                </a>
+            </div>
+        </div>
+        <div class="regPageMainBody">
+            <a href="/adminSupply/<%= restaurantid %>">
+                <div class="backTo backArrow"></div>
+            </a>
+            <div class="regFormDiv">
+                <h2 class="pageMainTitle regTitle">Étel Létrehozása</h2>
+                <form method="post" class="regForm" action="/addFood/<%= restaurantid %>">
+                    <div class="main">
+                        <input type="text" name="foodName" id="foodName" onchange="checkValue(this)" onfocus="this.placeholder = 'string'" onblur="this.placeholder=''" placeholder required />
+                        <label class="hello"> Étel neve</label>
+                        <span class="enter"></span>
+                    </div>
+                    <div class="main">
+                        <input type="text" name="description" id="description" onchange="checkValue(this)" onfocus="this.placeholder = 'string'" onblur="this.placeholder=''" placeholder required/>
+                        <label class="hello"> Leírás</label>
+                        <span class="enter"></span>
+                    </div>
+                    <div class="main">
+                        <input type="text" name="price" id="price" onchange="checkValue(this)" onfocus="this.placeholder = 'integer'" onblur="this.placeholder=''" placeholder required/>
+                        <label class="hello"> Ár</label>
+                        <span class="enter"></span>
+                    </div>
+                    <div class="main">
+                        <input list="categories" name="category" id="category" onchange="checkValue(this)" placeholder required>
+                            <label class="hello"> Kategória</label>
+                            <datalist id="categories">
+                                <option value="Soup">
+                                <option value="PorkMeetFood">
+                                <option value="ChickenMeetFood">
+                                <option value="Fish">
+                                <option value="FastFood">
+                                <option value="Sandwich">
+                                <option value="HotDrink">
+                                <option value="Drink">
+                                <option value="Dessert">
+                                <option value="Other">
+                            </datalist>
+                    </div>
+                    <div class="main">
+                        <input type="text" name="allergens" id="allergens" onchange="checkValue(this)" onfocus="this.placeholder = 'string pl.(liszt, tojás)'" onblur="this.placeholder=''" placeholder required/>
+                        <label class="hello"> Allergének, vesszőkkel elválasztva</label>
+                        <span class="enter"></span>
+                    </div>
+                    <div class="main">
+                        <input type="text" name="img" id="img" onchange="checkValue(this)" onfocus="this.placeholder = 'string (path/name.png)'" onblur="this.placeholder=''" placeholder required/>
+                        <label class="hello"> Kép</label>
+                        <span class="enter"></span>
+                    </div>
+                    <% if(typerror){ %>
+                        <div class="logerror">
+                            Számot adj meg az árhoz.
+                        </div>
+                    <% } %>
+                    <div style="display: flex; justify-content: center;">
+                        <button class="regButton createButton" type="submit" name="registration">Étel Létrehozása</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

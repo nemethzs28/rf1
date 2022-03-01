@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>WebPincér</title>
+    <link rel="stylesheet" type="text/css" href="/style/allStyle.css">
+    <link rel="icon" href="/assets/icon_restaurant.png">
+    <script type="text/javascript" src="/scripts/indexDB.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <script type="text/javascript" src="/scripts/floatingLabel.js"></script>
+</head>
+<body>
+<div class="mainPageContainer">
+    <div class="mainPage">
+        <div class="mainPageHeaderContainer">
+            <div class="header">
+                <a href="/" style="text-decoration: none">
+                    <div class="mainTitle">WebPincér</div>
+                </a>
+                <div style="display: flex;align-self: center;">
+                    <a href="/profile" style="text-decoration: none" class="aContainerProfilePic">
+                        <div class="profileIcon"></div>
+                    </a>
+                    <a href="/shoppingCart" style="text-decoration: none" class="aContainerCartPic">
+                        <div id="Cart" class="shoppingCartIcon smthInCart"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu">
+                <%if (sess.email) {%>
+                <a href="/signout" style="text-decoration: none">
+                    <div class="login">Kijelentkezés</div>
+                </a>
+                <% } else {%>
+                <a href="/login" style="text-decoration: none">
+                    <div class="login">Bejelentkezés</div>
+                </a>
+                <% } %>
+                <a href="/registration" style="text-decoration: none">
+                    <div class="registration">Regisztráció</div>
+                </a>
+                <a href="/connection" style="text-decoration: none">
+                    <div class="connection">Kapcsolat</div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <div style="margin: 0 1rem 3rem 1rem;">
+                <a href="/shoppingCart">
+                    <div class="backTo redirectToCart"></div>
+                </a>
+                <h2 class="pageMainTitle dataForPayingTitle">Rendeléshez szükséges adatok megadása</h2>
+            </div>
+            <div class="payingPageMainBody">
+                <div class="customerData">
+                    <form method="post" action="/sendmail" class="regFormPay">
+                        <div class="mainPay">
+                            <input type="text" name="fullNamePay" id="FullName" onchange="checkValue(this)" placeholder required/>
+                            <label class="helloPay"> Teljes név</label>
+                            <span class="enterPay"></span>
+                        </div>
+                        <div class="mainPay">
+                            <input type="text" name="emailPay" id="Email" onchange="checkValue(this)" placeholder required/>
+                            <label class="helloPay"> E-mail</label>
+                            <span class="enterPay"></span>
+                        </div>
+                        <div class="mainPay">
+                            <input type="text" name="mobilePay" id="PhoneNumber" onchange="checkValue(this)" placeholder required/>
+                            <label class="helloPay"> Telefonszám</label>
+                            <span class="enterPay"></span>
+                        </div>
+                        <div class="mainPay">
+                            <input type="text" name="postCode" id="ZipCode" onchange="checkValue(this)" placeholder required/>
+                            <label class="helloPay"> Irányítószám</label>
+                            <span class="enterPay"></span>
+                        </div>
+                        <div class="mainPay">
+                            <input type="text" name="city" id="City" onchange="checkValue(this)" placeholder required/>
+                            <label class="helloPay"> Város</label>
+                            <span class="enterPay"></span>
+                        </div>
+                        <div class="mainPay">
+                            <input type="text" name="street" id="Address" onchange="checkValue(this)" placeholder required/>
+                            <label class="helloPay"> Utca, házszám</label>
+                            <span class="enterPay"></span>
+                        </div>
+                        <div class="mainPay">
+                            <input type="text" name="other" id="Floor" onchange="checkValue(this)" placeholder/>
+                            <label class="helloPay"> Emelet, ajtó</label>
+                            <span class="enterPay"></span>
+                        </div>
+                        <div class="payingBtnContainer">
+                            <button type="submit" class="payingBtn" onclick="deleteAllFoodFromCart()">Fizetés és Megrendelés</button>
+                            <button type="reset" class="resetBtn">Adatok törlése</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

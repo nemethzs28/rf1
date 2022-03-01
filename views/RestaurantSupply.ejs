@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>WebPincér</title>
+    <link rel="stylesheet" type="text/css" href="/style/allStyle.css">
+    <link rel="icon" href="/assets/icon_restaurant.png">
+    <script type="text/javascript" src="/scripts/indexDB.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+    <script type="text/javascript" src="/scripts/foodCategory.js"></script>
+</head>
+<body>
+<div class="mainPageContainer">
+    <div class="mainPage">
+        <div class="mainPageHeaderContainer">
+            <div class="header">
+                <a href="/" style="text-decoration: none">
+                    <div class="mainTitle">WebPincér</div>
+                </a>
+                <div style="display: flex;align-self: center;">
+                    <a href="/profile" style="text-decoration: none" class="aContainerProfilePic">
+                        <div class="profileIcon"></div>
+                    </a>
+                    <a href="/shoppingCart" style="text-decoration: none" class="aContainerCartPic">
+                        <div id="Cart" class="shoppingCartIcon smthInCart"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="menu">
+                <% if (sess.email) { %>
+                    <a href="/signout" style="text-decoration: none">
+                        <div class="login">Kijelentkezés</div>
+                    </a>
+                <% } else { %>
+                    <a href="/login" style="text-decoration: none">
+                        <div class="login">Bejelentkezés</div>
+                    </a>
+                <% } %>
+                <a href="/registration" style="text-decoration: none">
+                    <div class="registration">Regisztráció</div>
+                </a>
+                <a href="/connection" style="text-decoration: none">
+                    <div class="connection">Kapcsolat</div>
+                </a>
+            </div>
+        </div>
+        <div class="supplyPageHeader">
+            <a href="/RF">
+                <div class="backTo"></div>
+            </a>
+            <h2 class="pageMainTitle">Éttermi kínálat</h2>
+        </div>
+        <div class="supplyPageBodyMenu" id="menu">
+            <% for (const food of filteredFoods) { %>
+                <script>filter(`<%= food.category %>`, `<%= food.restaurantid %>`)</script>
+            <% } %>
+            <script>checkCategory()</script>
+        </div>
+        <div class="supplyPageBody" id="valami">
+            <%
+            if (cate !== ""){
+                    for (const food of filteredFoods) {
+            if (food.category === cate) {
+            %>
+                <div class="foodContainer">
+                    <div class="pictureOfRestaurantFood">
+                        <img style="width: 8rem; height: 7rem;" src="<%= food.img %>">
+                    </div>
+                    <div class="nameOfTheFood">
+                        <%= food.name %>
+                        <div class="descriptionOfFood">
+                            <%= food.description %>
+                        </div>
+                    </div>
+                    <div class="priceOfTheFood">
+                        <%= food.price %> Ft
+                    </div>
+                    <div class="addToCartContainer">
+                        <button class="addToCart" id="AddToCartBtn"
+                                onclick="dataToDB(<%= food.id %>, '<%= food.name %>', <%= food.price %>, 1); itemAddedToCart('<%= food.name %>')">
+                            Kosárba
+                        </button>
+                    </div>
+                </div>
+            <% }
+            }}
+            else{
+                    for (const food of filteredFoods) { %>
+                <div class="foodContainer">
+                    <div class="pictureOfRestaurantFood">
+                        <img style="width: 8rem; height: 7rem;" src="<%= food.img %>">
+                    </div>
+                    <div class=" nameOfTheFood">
+                        <%= food.name %>
+                        <div class="descriptionOfFood">
+                            <%= food.description %>
+                        </div>
+                    </div>
+                    <div class="priceOfTheFood">
+                        <%= food.price %> Ft
+                    </div>
+                    <div class="addToCartContainer">
+                        <button class="addToCart" id="AddToCartBtn"
+                                onclick="dataToDB(<%= food.id %>, '<%= food.name %>', <%= food.price %>, 1); itemAddedToCart('<%= food.name %>')">
+                            Kosárba
+                        </button>
+                    </div>
+                </div>
+            <% }} %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

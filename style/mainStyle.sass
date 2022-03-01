@@ -1,0 +1,195 @@
+body
+  margin: 0
+
+*
+  font-family: sans-serif
+
+a
+  outline: none !important
+
+.mainPageContainer
+  position: relative
+  padding-bottom: 2rem
+
+  &:before
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    display: block
+    content: ""
+    background-image: url("../assets/food.png")
+    background-repeat: repeat
+    background-size: 40rem 40rem
+    opacity: 0.2
+    z-index: -1
+
+.mainPage
+  margin: 0 auto
+  box-shadow: .8rem .8rem .8rem rgba(180, 180, 180, .3), -0.8rem .8rem .8rem rgba(180, 180, 180, .3)
+  max-width: 50rem
+  width: 100%
+  height: 100%
+  background-color: white
+  min-height: 100vh
+  padding-bottom: 2rem
+
+  .adminPages
+    margin-right: 3rem
+    width: 15rem !important
+
+    &:last-child
+      margin-right: 0
+
+    &:hover
+      color: #0d9dcf
+
+  .mainPageBody
+    display: grid
+    justify-content: center
+    margin-top: 8rem
+
+    .searchingFieldAndBtnContainer
+      margin: 3rem auto 0 auto
+
+    .headerPicture
+      width: 50rem
+      height: 10rem
+      background-image: url(../assets/header_food.png)
+      background-repeat: no-repeat
+      background-size: contain
+      background-color: rgb(30,25,26)
+      filter: invert(1)
+      background-position: center
+
+    .searchingField
+      width: 20rem
+      height: 2rem
+      font-size: 1.2rem
+
+    .searchingBtnContainer
+      display: flex
+      justify-content: center
+      margin-top: 2rem
+
+      .searchingBtn
+        width: 10rem
+        height: 2rem
+        font-size: 1.2rem
+        background-color: #0A85AB
+        color: #ffffff
+        cursor: pointer
+
+        &:hover
+          filter: drop-shadow(0.1rem 0.1rem 0.2rem #a0a0a0)
+
+  .mainPageHeaderContainer
+    margin-right: 1rem
+    margin-left: 1rem
+
+    .header
+      width: 100%
+      position: relative
+      display: flex
+      justify-content: space-between
+
+      .aContainerProfilePic, .aContainerCartPic
+        width: 2.5rem
+        height: 2.5rem
+        margin: 0.3rem
+
+      &:after
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        height: .1rem
+        display: block
+        content: ""
+        background-image: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(10,133,171,1) 50%, rgba(255,255,255,1) 100%)
+
+      .mainTitle
+        color: #0A85AB
+        font-size: 4rem
+        font-family: sans-serif
+        font-weight: 700
+        margin: 1rem
+
+      .profileIcon
+        background-image: url("../assets/profile_icon.png")
+        background-repeat: no-repeat
+        background-size: 2.5rem  2.5rem
+        width: 2.5rem
+        height: 2.5rem
+        cursor: pointer
+        transition: all 250ms
+
+        &:hover
+          filter: invert(1)
+
+      .shoppingCartIcon
+        background-image: url(../assets/shopping_cart_icon.png)
+        background-repeat: no-repeat
+        background-size: contain
+        filter: invert(1)
+        width: 2.5rem
+        height: 2.5rem
+        cursor: pointer
+
+        &:hover
+          width: 2.8rem
+          height: 2.8rem
+
+    .menu
+      display: flex
+      justify-content: space-evenly
+      top: 1rem
+      position: relative
+      font-size: 1.2rem
+      height: 2.5rem
+
+      .login, .registration, .connection
+        height: fit-content
+        width: 6.5rem
+        color: #0A85AB
+        font-family: sans-serif
+        cursor: pointer
+
+        &:hover
+          font-size: 1.3rem
+          color: #00a0d2
+
+  .pageMainTitle
+    text-align: center
+    margin-top: 3rem
+    font-size: 2rem
+    font-family: sans-serif
+    color: #0A85AB
+    margin-bottom: 8rem
+
+    //.hamburgerMenu
+    //  display: inline-block
+    //  cursor: pointer
+    //  top: 1.5rem
+    //  right: 1rem
+    //  position: relative
+    //
+    //  .div1, .div2, .div3
+    //    width: 35px
+    //    height: 5px
+    //    background-color: #0A85AB
+    //    margin: 6px 0
+    //    transition: 0.4s
+    //
+    //.change
+    //  .div1
+    //    -webkit-transform: rotate(-45deg) translate(-9px, 6px)
+    //    transform: rotate(-45deg) translate(-9px, 6px)
+    //.change
+    //  .div2
+    //    opacity: 0
+    //.change
+    //  .div3
+    //    -webkit-transform: rotate(45deg) translate(-8px, -8px)
+    //    transform: rotate(45deg) translate(-8px, -8px)

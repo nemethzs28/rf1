@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+
+    <title>WebPincér</title>
+    <link rel="stylesheet" type="text/css" href="/style/allStyle.css">
+    <link rel="icon" href="/assets/icon_restaurant.png">
+    <script type="text/javascript" src="/scripts/indexDB.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+</head>
+<body>
+<div class="mainPageContainer">
+    <div class="mainPage">
+        <div class="mainPageHeaderContainer">
+            <div class="header">
+                <a href="/" style="text-decoration: none">
+                    <div class="mainTitle">WebPincér</div>
+                </a>
+                <div style="display: flex;align-self: center;">
+                    <a href="/profile" style="text-decoration: none" class="aContainerProfilePic">
+                        <div class="profileIcon"></div>
+                    </a>
+                    <a href="/shoppingCart" style="text-decoration: none" class="aContainerCartPic">
+                        <div id="Cart" class="shoppingCartIcon smthInCart"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu">
+                <%if (sess.email) {%>
+                    <a href="/signout" style="text-decoration: none">
+                        <div class="login">Kijelentkezés</div>
+                    </a>
+                <% } else {%>
+                    <a href="/login" style="text-decoration: none">
+                        <div class="login">Bejelentkezés</div>
+                    </a>
+                <% } %>
+                <a href="/registration" style="text-decoration: none">
+                    <div class="registration">Regisztráció</div>
+                </a>
+                <a href="/connection" style="text-decoration: none">
+                    <div class="connection">Kapcsolat</div>
+                </a>
+            </div>
+        </div>
+        <div class="finderPageHeader">
+            <a href="/">
+                <div class="backTo"></div>
+            </a>
+            <h2 class="pageMainTitle restaurantFinderTitle">Étterem kereső</h2>
+        </div>
+        <div class="restaurantList" id="ListOfRestaurant">
+            <% for (const restaurant of filteredRestaurants) { %>
+                <form action="/RestaurantSupply/<%= restaurant.id %>" method="POST">
+                    <div class="restaurant">
+                        <div class="pictureOfRestaurant">
+                            <img style="width: 8rem; height: 2rem;" src="/<%= restaurant.image %>"/>
+                        </div>
+                        <div class="nameOfTheRestaurant">
+                            <%= restaurant.name %>
+                            <div class="informationOfRestaurant">
+                                <%= restaurant.description %>
+                            </div>
+                        </div>
+                        <div class="lastContainer">
+                            <div class="ratingContainer">
+                                <%= restaurant.rating %>
+                                <br>
+                                <%= restaurant.pricecategory%>
+<!--                                <script>rate('<%= restaurant.rating%>','<%= restaurant.id %>')</script>-->
+                            </div>
+                            <div class="checkBtnContainer">
+                                <button class="checkRestaurantBtn" type="submit"
+                                        onclick="redirectingToRestaurantSupplyPage()">
+                                    Megnézem
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            <% } %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

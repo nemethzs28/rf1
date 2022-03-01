@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>WebPincér</title>
+    <link rel="stylesheet" type="text/css" href="/style/allStyle.css">
+    <link rel="icon" href="/assets/icon_restaurant.png">
+    <script type="text/javascript" src="/scripts/indexDB.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+</head>
+<body>
+<div class="mainPageContainer">
+    <div class="mainPage">
+        <div class="mainPageHeaderContainer">
+            <div class="header">
+                <a href="/" style="text-decoration: none">
+                    <div class="mainTitle">WebPincér</div>
+                </a>
+                <div style="display: flex;align-self: center;">
+                    <a href="/profile" style="text-decoration: none; opacity: 0.4; pointer-events: none"
+                       class="aContainerProfilePic">
+                        <div class="profileIcon"></div>
+                    </a>
+                    <a href="/shoppingCart" style="text-decoration: none" class="aContainerCartPic">
+                        <div id="Cart" class="shoppingCartIcon smthInCart"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu">
+                <%if (sess.email) {%>
+                    <a href="/signout" style="text-decoration: none">
+                        <div class="login">Kijelentkezés</div>
+                    </a>
+                <% } else {%>
+                    <a href="/login" style="text-decoration: none">
+                        <div class="login">Bejelentkezés</div>
+                    </a>
+                <% } %>
+                <a href="/registration" style="text-decoration: none">
+                    <div class="registration">Regisztráció</div>
+                </a>
+                <a href="/connection" style="text-decoration: none">
+                    <div class="connection">Kapcsolat</div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <h2 class="pageMainTitle profileTitle">Profil</h2>
+            <div class="profileMainBody">
+                <div class="profileDatasHeader">
+                    Teljes név:
+                </div>
+                <div class="profileDatas">
+                    <%= model.name %>
+                </div>
+                <div class="profileDatasHeader">
+                    E-mail cím:
+                </div>
+                <div class="profileDatas">
+                    <%= model.email %>
+                </div>
+                <div class="profileDatasHeader">
+                    Telefonszám:
+                </div>
+                <div class="profileDatas">
+                    <%= model.phone %>
+                </div>
+                <div class="profileDatasHeader">
+                    Irányítószám:
+                </div>
+                <div class="profileDatas">
+                    <%= model.zipcode %>
+                </div>
+                <div class="profileDatasHeader">
+                    Város:
+                </div>
+                <div class="profileDatas">
+                    <%= model.city %>
+                </div>
+                <div class="profileDatasHeader">
+                    Utca, házszám:
+                </div>
+                <div class="profileDatas">
+                    <%= model.street_housenumber %>
+                </div>
+                <div class="profileDatasHeader">
+                    Ajtó, emelet:
+                </div>
+                <div class="profileDatas">
+                    <%= model.floor_doornumber %>
+                </div>
+                <div style="text-align: center">
+                    <button class="backToMainPageBtn" onclick="redirectingToMainPage()">Vissza a főoldalra</button>
+                    <button class="backToMainPageBtn" onclick="profileUpdate()">Adatok módosítása</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

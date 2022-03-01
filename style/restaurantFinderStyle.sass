@@ -1,0 +1,164 @@
+.mainPage
+  .finderPageHeader
+    margin: 0 1rem 3rem 1rem
+
+    .restaurantFinderTitle
+      margin-bottom: 4rem
+      margin-top: 1rem
+
+  .dropdown
+    width: fit-content
+    height: fit-content
+
+    &:hover
+      .dropdown-content
+        display: block
+
+      .dropbtn
+        background-color: #0A85AB
+
+    .dropbtn
+      background-color: #0A85AB
+      color: white
+      font-size: 1rem
+      border-radius: 0.4rem
+      width: 6rem
+      height: 2rem
+
+    .dropdown-content
+      display: none
+      position: absolute
+      background-color: #f1f1f1
+      min-width: 160px
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+      z-index: 1
+
+      div
+        color: black
+        padding: 12px 16px
+        text-decoration: none
+        display: block
+
+        &:hover
+          background-color: #ddd
+          cursor: pointer
+
+  .restaurantList
+    width: 100%
+    min-height: 70vh
+
+    .restaurant
+      width: calc(100% - 1.6rem)
+      min-height: 10rem
+      margin: 0.8rem
+      box-shadow: rgba(99, 99, 99, 0.2) 0 .2rem .8rem 0
+      position: relative
+      display: flex
+      flex-flow: row
+      justify-content: space-evenly
+      flex-wrap: nowrap
+      white-space: normal
+
+      .pictureOfRestaurant
+        width: 8rem
+        height: 8rem
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+        margin: .4rem
+        align-self: center
+        max-width: 8rem
+
+      .nameOfTheRestaurant
+        margin-top: 0.4rem
+        font-weight: 700
+        font-size: 1.2rem
+        flex: 1 1 auto
+        max-width: 29rem
+
+        .informationOfRestaurant
+          width: auto
+          margin: 0.4rem
+          font-size: 1rem
+          opacity: 0.6
+          font-family: sans-serif
+          align-self: center
+
+      .lastContainer
+        display: flex
+        flex-flow: column
+        flex-direction: column
+        align-items: flex-end
+        justify-content: space-between
+        flex-wrap: nowrap
+
+        .ratingContainer
+          margin-top: 1rem
+          color: steelblue
+          font-size: 1.1rem
+          font-weight: 600
+
+          .rate
+            height: 46px
+            padding: 0 10px
+            display: flex
+            align-items: center
+            flex-wrap: nowrap
+            overflow: hidden
+
+          .rate:not(:checked) > input
+            position: absolute
+            top: -9999px
+
+          .rate:not(:checked) > label
+            float: right
+            width: 1em
+            overflow: hidden
+            white-space: nowrap
+            cursor: pointer
+            font-size: 30px
+            color: #ccc
+
+          .rate:not(:checked) > label:before
+            content: '★ '
+
+          //.rate > input:checked ~ label
+          //  color: #ffc700
+          //
+          //.rate:not(:checked) > label:hover,
+          //.rate:not(:checked) > label:hover ~ label
+          //  color: #deb217
+          //
+          //.rate > input:checked + label:hover,
+          //.rate > input:checked + label:hover ~ label,
+          //.rate > input:checked ~ label:hover,
+          //.rate > input:checked ~ label:hover ~ label,
+          //.rate > label:hover ~ input:checked ~ label
+          //  color: #c59b08
+
+        .checkBtnContainer
+          align-self: flex-end
+          margin-bottom: 0.4rem
+
+          .checkRestaurantBtn
+            width: 6rem
+            height: 2rem
+            background-color: #0A85AB
+            bottom: 0.3rem
+            color: white
+            font-family: sans-serif
+            font-size: 1rem
+            text-align: center
+            cursor: pointer
+            margin: .4rem
+            &:hover
+              box-shadow: 0rem 0rem 0rem 2.5px #fff, 0rem 0rem 0rem 5px #0A85AB, 0rem 0rem 0rem 10px white, 0rem 0rem 0rem 10.5px #0A85AB
+              background: white
+              color: #0A85AB
+              border-radius: 0.3125rem
+              text-decoration: none
+              transition: 0.5s ease-in-out
+
+.rated
+  color: #ffc700 !important
+

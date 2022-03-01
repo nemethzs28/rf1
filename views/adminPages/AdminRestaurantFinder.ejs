@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>WebPincér</title>
+    <link rel="stylesheet" type="text/css" href="/style/allStyle.css">
+    <link rel="icon" href="/assets/icon_restaurant.png">
+    <script type="text/javascript" src="/scripts/indexDB.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+</head>
+<body>
+<div class="mainPageContainer">
+    <div class="mainPage">
+        <div class="mainPageHeaderContainer">
+            <div class="header">
+                <a href="/" style="text-decoration: none">
+                    <div class="mainTitle">WebPincér</div>
+                </a>
+                <div style="display: flex;align-self: center;">
+                    <a href="/profile" style="text-decoration: none" class="aContainerProfilePic">
+                        <div class="profileIcon"></div>
+                    </a>
+                    <a href="/shoppingCart" style="text-decoration: none" class="aContainerCartPic">
+                        <div id="Cart" class="shoppingCartIcon smthInCart"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu">
+                <%if (sess.email) {%>
+                    <a href="/signout" style="text-decoration: none">
+                        <div class="login">Kijelentkezés</div>
+                    </a>
+                <% } else {%>
+                    <a href="/login" style="text-decoration: none">
+                        <div class="login">Bejelentkezés</div>
+                    </a>
+                <% } %>
+                <a href="/registration" style="text-decoration: none">
+                    <div class="registration">Regisztráció</div>
+                </a>
+                <a href="/connection" style="text-decoration: none">
+                    <div class="connection">Kapcsolat</div>
+                </a>
+            </div>
+        </div>
+        <div class="finderPageHeader adminFinderHeader">
+            <a href="/">
+                <div class="backTo"></div>
+            </a>
+            <h2 class="pageMainTitle restaurantFinderTitle">Étterem kereső <br> - Admin oldal -</h2>
+            <form style="display: flex; justify-content: flex-end;" action="/restaurantCreate" method="get"><button class="CRUDBtns addRestaurantBtn">Hozzáadás</button></form>
+        </div>
+        <div class="restaurantList" id="ListOfRestaurant">
+
+            <% for (const restaurant of restaurants) { %>
+
+            <div class="restaurant">
+                <div class="pictureOfRestaurant">
+                    <img style="width: 8rem; height: 2rem;" src="<%= restaurant.image %>"/>
+                </div>
+                <div class="nameOfTheRestaurant">
+                    <td><%= restaurant.name %></td>
+                    <div class="informationOfRestaurant">
+                        <td><%= restaurant.description %></td>
+                    </div>
+                </div>
+
+                <div class="lastContainer">
+                    <div class="checkBtnContainer">
+                        <form action="/edit/<%= restaurant.id %>" method="get">
+                            <button class="CRUDBtns">Módosítás</button>
+                        </form>
+                        <form action="/delete/<%= restaurant.id %>" method="post">
+                            <button class="CRUDBtns">Törlés</button>
+                        </form>
+                        <form action="/adminSupply/<%= restaurant.id %>" method="POST">
+                            <button class="CRUDBtns" type="submit">Étlap</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <% }%>
+        </div>
+    </div>
+</div>
+</body>
+</html>

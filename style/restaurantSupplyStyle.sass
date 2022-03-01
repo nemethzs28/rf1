@@ -1,0 +1,145 @@
+@mixin setFoodIcon($bg)
+  width: 4.2rem
+  height: 4.2rem
+  background-image: url($bg)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 4.2rem 4.2rem
+  cursor: pointer
+
+  &:hover
+    filter: contrast(200%)
+
+.mainPage
+  .supplyPageHeader
+    margin: 2rem 3rem
+
+  .supplyPageBodyMenu
+    width: 100%
+    height: 8vh
+    display: flex
+    justify-content: center
+
+    #groupsOfSoup
+      @include setFoodIcon("../assets/foodIcons/soup.png")
+
+    #groupsOfMainCourse
+      @include setFoodIcon("../assets/foodIcons/mainCourse.png")
+
+    #groupsOfPorkMeetFood
+      @include setFoodIcon("../assets/foodIcons/porkmeetFood.png")
+
+    #groupsOfChickenMeetFood
+      @include setFoodIcon("../assets/foodIcons/chickenmeetFood.png")
+
+    #groupsOfFish
+      @include setFoodIcon("../assets/foodIcons/fish.png")
+
+    #groupsOfFastFood
+      @include setFoodIcon("../assets/foodIcons/fastFood.png")
+
+    #groupsOfSandwich
+      @include setFoodIcon("../assets/foodIcons/sandwich.png")
+
+    #groupsOfHotDrink
+      @include setFoodIcon("../assets/foodIcons/hotDrinks.png")
+
+    #groupsOfDrink
+      @include setFoodIcon("../assets/foodIcons/drink.png")
+
+    #groupsOfOther
+      @include setFoodIcon("../assets/foodIcons/others.png")
+
+    #groupsOfDessert
+      @include setFoodIcon("../assets/foodIcons/dessert.png")
+
+  .backTo
+    width: 2.5rem
+    height: 2.5rem
+    background-image: url("../assets/back_arrow.png")
+    background-repeat: no-repeat
+    background-size: 2.5rem 2.5rem
+    filter: contrast(0.5)
+    cursor: pointer
+
+    &:hover
+      background-size: 2.8rem 2.8rem
+
+  .supplyPageBody
+    width: 100%
+    height: 100%
+    margin-top: 4rem
+    padding-bottom: 5rem
+
+.foodContainer
+  width: 100%
+  min-height: 10rem
+  margin: 1rem 0
+  box-shadow: rgba(99, 99, 99, 0.2) 0 .2rem .8rem 0
+  position: relative
+  display: flex
+  flex-flow: row
+  justify-content: space-evenly
+  flex-wrap: nowrap
+  white-space: normal
+  padding: 1rem
+  box-sizing: border-box
+
+  .pictureOfFood
+    background-image: url("../assets/choco_cake.jpg")
+    width: 8rem
+    height: 8rem
+    background-size: contain
+    background-position: center
+    background-repeat: no-repeat
+    margin-right: 1rem
+    max-width: 8rem
+
+  .pictureOfRestaurantFood
+    background-size: 8rem  8rem
+    background-repeat: no-repeat
+    width: 8rem
+    height: 8rem
+    margin-right: 1rem
+    max-width: 8rem
+
+  .nameOfTheFood
+    font-weight: 700
+    font-size: 1.2rem
+    flex: 1 1 auto
+    max-width: 29rem
+
+    .descriptionOfFood
+      width: auto
+      margin: 0.4rem
+      font-size: 1rem
+      opacity: 0.6
+      font-family: sans-serif
+      align-self: center
+
+  .priceOfTheFood
+    font-weight: 600
+    align-self: center
+    max-width: 6rem
+
+  .addToCartContainer
+    align-self: flex-end
+
+    .addToCart
+      width: 6rem
+      height: 2rem
+      background-color: #0A85AB
+      bottom: 0.3rem
+      color: white
+      font-family: sans-serif
+      font-size: 1rem
+      text-align: center
+      cursor: pointer
+
+      &:hover
+        background-color: #0d9dcf
+
+
+
+
+

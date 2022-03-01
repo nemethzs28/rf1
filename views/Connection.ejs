@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>WebPincér</title>
+    <link rel="stylesheet" type="text/css" href="/style/allStyle.css">
+    <link rel="icon" href="/assets/icon_restaurant.png">
+    <script type="text/javascript" src="/scripts/indexDB.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+</head>
+<body>
+<div class="mainPageContainer">
+    <div class="mainPage">
+        <div class="mainPageHeaderContainer">
+            <div class="header">
+                <a href="/" style="text-decoration: none">
+                    <div class="mainTitle">WebPincér</div>
+                </a>
+                <div style="display: flex;align-self: center;">
+                    <a href="/profile" style="text-decoration: none" class="aContainerProfilePic">
+                        <div class="profileIcon"></div>
+                    </a>
+                    <a href="/shoppingCart" style="text-decoration: none" class="aContainerCartPic">
+                        <div id="Cart" class="shoppingCartIcon smthInCart"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu">
+                <%if (sess.email) {%>
+                <a href="/signout" style="text-decoration: none">
+                    <div class="login">Kijelentkezés</div>
+                </a>
+                <% } else {%>
+                <a href="/login" style="text-decoration: none">
+                    <div class="login">Bejelentkezés</div>
+                </a>
+                <% } %>
+                <a href="/registration" style="text-decoration: none">
+                    <div class="registration">Regisztráció</div>
+                </a>
+                <a href="/connection" style="text-decoration: none">
+                    <div class="connection">Kapcsolat</div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <h2 class="pageMainTitle connectionTitle">Kapcsolat</h2>
+        </div>
+        <div class="connectionMainBody">
+            <div class="connectionHeaders">
+                ÜGYFÉLSZOLGÁLAT
+            </div>
+            <div class="connectionTexts">
+                Fogyasztóként észrevételed vagy panaszod lenne a rendeléseddel kapcsolatban?
+                Keresd fel az Ügyfélszolgálatunkat, ahol sok gyakran előforduló kérdésre rögtön választ találsz,
+                de ha esetleg továbbbi segítségre szorulsz, akkor azt is megírhatod!
+                <br> <br> ugyfelszolgalat@webpincer.com
+            </div>
+            <div class="connectionHeaders">
+                CÉGNÉV
+            </div>
+            <div class="connectionTexts">
+                Webpincér, Étel és Ital házhozszállítás
+            </div>
+            <div class="connectionHeaders">
+                IRODA SZÉKHELY
+            </div>
+            <div class="connectionTexts">
+                6725 Szeged, Tisza Lajos krt. 103.
+            </div>
+            <div class="connectionHeaders">
+                TELEFONSZÁM
+            </div>
+            <div class="connectionTexts">
+                06-90/422-5542
+            </div>
+            <div class="connectionHeaders">
+                BANKSZÁMLASZÁM
+            </div>
+            <div class="connectionTexts">
+                99999942-10664842-69010042
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

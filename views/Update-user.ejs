@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>WebPincér</title>
+    <link rel="stylesheet" type="text/css" href="/style/allStyle.css">
+    <link rel="icon" href="/assets/icon_restaurant.png">
+    <script type="text/javascript" src="/scripts/indexDB.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+</head>
+<body>
+<div class="mainPageContainer">
+    <div class="mainPage">
+        <div class="mainPageHeaderContainer">
+            <div class="header">
+                <a href="/" style="text-decoration: none">
+                    <div class="mainTitle">WebPincér</div>
+                </a>
+                <div style="display: flex;align-self: center;">
+                    <a href="/profile" style="text-decoration: none" class="aContainerProfilePic">
+                        <div class="profileIcon"></div>
+                    </a>
+                    <a href="/shoppingCart" style="text-decoration: none" class="aContainerCartPic">
+                        <div id="Cart" class="shoppingCartIcon smthInCart"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu">
+                <%if (sess.email) {%>
+                    <a href="/signout" style="text-decoration: none">
+                        <div class="login">Kijelentkezés</div>
+                    </a>
+                <% } else {%>
+                    <a href="/login" style="text-decoration: none">
+                        <div class="login">Bejelentkezés</div>
+                    </a>
+                <% } %>
+                <a href="/registration" style="text-decoration: none">
+                    <div class="registration">Regisztráció</div>
+                </a>
+                <a href="/connection" style="text-decoration: none">
+                    <div class="connection">Kapcsolat</div>
+                </a>
+            </div>
+        </div>
+        <div class="regPageMainBody">
+            <a href="/adminUsers">
+                <div class="backTo backArrow"></div>
+            </a>
+            <div class="regFormDiv">
+                <h2 class="pageMainTitle regTitle">Felhasználó szerkesztése</h2>
+                <form action="/adminUpdateUser/<%= model.id %>" method="post">
+                    <label class="createFoodHeader">Név:</label>
+                    <div class="main">
+                        <input type="text" name="name" id="name" value="<%= model.name %>"/>
+                        <label class="hello"></label>
+                        <span class="enter"></span>
+                    </div>
+                    <label class="createFoodHeader">Telefonszám:</label>
+                    <div class="main">
+                        <input type="text" name="phone" id="phone" value="<%= model.phone %>"/>
+                        <label class="hello"></label>
+                        <span class="enter"></span>
+                    </div>
+                    <label class="createFoodHeader">E-mail:</label>
+                    <div class="main">
+                        <input type="email" name="email" id="email" value="<%= model.email %>" required/>
+                        <label class="hello"></label>
+                        <span class="enter"></span>
+                    </div>
+                    <label class="createFoodHeader">Irányítószám:</label>
+                    <div class="main">
+                        <input type="text" name="zipcode" id="zipcode" value="<%= model.zipcode %>"/>
+                        <label class="hello"></label>
+                        <span class="enter"></span>
+                    </div>
+                    <label class="createFoodHeader">Város:</label>
+                    <div class="main">
+                        <input type="text" name="city" id="city" value="<%= model.city %>"/>
+                        <label class="hello"></label>
+                        <span class="enter"></span>
+                    </div>
+                    <label class="createFoodHeader">Utca, házszám:</label>
+                    <div class="main">
+                        <input type="text" name="street_housenumber" id="street_housenumber" value="<%= model.street_housenumber %>"/>
+                        <label class="hello"></label>
+                        <span class="enter"></span>
+                    </div>
+                    <label class="createFoodHeader">Emelet, ajtó:</label>
+                    <div class="main">
+                        <input type="text" name="floor_doornumber" id="floor_doornumber" value="<%= model.floor_doornumber %>"/>
+                        <label class="hello"></label>
+                        <span class="enter"></span>
+                    </div>
+                    <label class="createFoodHeader">Jogosultság (adminhoz: admin):</label>
+                    <div class="main">
+                        <input type="text" name="permission" id="permission" value="<%= model.permission %>"/>
+                        <label class="hello"></label>
+                        <span class="enter"></span>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <input type="submit" value="Submit" class="btn-sm btn-dark details regButton">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

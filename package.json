@@ -1,0 +1,23 @@
+{
+  "name": "WebPincer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node index"
+  },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.7.2",
+    "pg": "^8.5.1",
+    "sass": "^1.44.0",
+    "cookie-parser": "^1.4.6",
+    "express-session": "^1.17.2",
+    "nodemon": "^2.0.12"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
